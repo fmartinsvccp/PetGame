@@ -92,8 +92,7 @@ namespace PetGame.UnitTests.Services
             var petServiceMock = new Mock<IPetService>();
             var userServiceMock = new Mock<IUserService>();
             var actionServiceMock = new Mock<IActionService>();
-            var timeProviderServiceMock = new Mock<ITimeProviderService>();
-            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object, timeProviderServiceMock.Object);
+            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object);
             var userPet = GetUserPetTest();
             var user = GetUserTest();
             var pet = GetPetTest();
@@ -131,8 +130,7 @@ namespace PetGame.UnitTests.Services
             var petServiceMock = new Mock<IPetService>();
             var userServiceMock = new Mock<IUserService>();
             var actionServiceMock = new Mock<IActionService>();
-            var timeProviderServiceMock = new Mock<ITimeProviderService>();
-            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object, timeProviderServiceMock.Object);
+            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object);
             var pet = GetPetTest();
 
             userPetRepoMock.Setup(repo => repo.CreateUserPet(null, pet))
@@ -165,8 +163,7 @@ namespace PetGame.UnitTests.Services
             var petServiceMock = new Mock<IPetService>();
             var userServiceMock = new Mock<IUserService>();
             var actionServiceMock = new Mock<IActionService>();
-            var timeProviderServiceMock = new Mock<ITimeProviderService>();
-            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object, timeProviderServiceMock.Object);
+            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object);
             var user = GetUserTest();
 
             userPetRepoMock.Setup(repo => repo.CreateUserPet(user, null))
@@ -199,8 +196,7 @@ namespace PetGame.UnitTests.Services
             var petServiceMock = new Mock<IPetService>();
             var userServiceMock = new Mock<IUserService>();
             var actionServiceMock = new Mock<IActionService>();
-            var timeProviderServiceMock = new Mock<ITimeProviderService>();
-            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object, timeProviderServiceMock.Object);
+            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object);
             var user = GetUserTest();
             var list = GetUserPetListTest();
 
@@ -230,8 +226,7 @@ namespace PetGame.UnitTests.Services
             var petServiceMock = new Mock<IPetService>();
             var userServiceMock = new Mock<IUserService>();
             var actionServiceMock = new Mock<IActionService>();
-            var timeProviderServiceMock = new Mock<ITimeProviderService>();
-            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object, timeProviderServiceMock.Object);
+            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object);
             var user = GetUserTest();
             var list = GetUserPetListTest();
 
@@ -260,8 +255,7 @@ namespace PetGame.UnitTests.Services
             var petServiceMock = new Mock<IPetService>();
             var userServiceMock = new Mock<IUserService>();
             var actionServiceMock = new Mock<IActionService>();
-            var timeProviderServiceMock = new Mock<ITimeProviderService>();
-            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object, timeProviderServiceMock.Object);
+            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object);
             var pet = GetPetTest();
             var userPet = GetUserPetTest();
 
@@ -285,8 +279,7 @@ namespace PetGame.UnitTests.Services
             var petServiceMock = new Mock<IPetService>();
             var userServiceMock = new Mock<IUserService>();
             var actionServiceMock = new Mock<IActionService>();
-            var timeProviderServiceMock = new Mock<ITimeProviderService>();
-            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object, timeProviderServiceMock.Object);
+            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object);
 
             //Act
             var result = await userPetService.UpdatePetStatus(null, 0, 0);
@@ -309,8 +302,7 @@ namespace PetGame.UnitTests.Services
             var petServiceMock = new Mock<IPetService>();
             var userServiceMock = new Mock<IUserService>();
             var actionServiceMock = new Mock<IActionService>();
-            var timeProviderServiceMock = new Mock<ITimeProviderService>();
-            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object, timeProviderServiceMock.Object);
+            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object);
 
             //Act 
             var result = userPetService.CalculatePetHappiness(minutes, happinessRatio, strokingValue, petHappiness);
@@ -331,8 +323,7 @@ namespace PetGame.UnitTests.Services
             var petServiceMock = new Mock<IPetService>();
             var userServiceMock = new Mock<IUserService>();
             var actionServiceMock = new Mock<IActionService>();
-            var timeProviderServiceMock = new Mock<ITimeProviderService>();
-            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object, timeProviderServiceMock.Object);
+            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object);
 
             //Act 
             var result = userPetService.CalculatePetHunger(minutes, hungerRatio, feedingValue, petHunger);
@@ -349,8 +340,7 @@ namespace PetGame.UnitTests.Services
             var petServiceMock = new Mock<IPetService>();
             var userServiceMock = new Mock<IUserService>();
             var actionServiceMock = new Mock<IActionService>();
-            var timeProviderServiceMock = new Mock<ITimeProviderService>();
-            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object, timeProviderServiceMock.Object);
+            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object);
             var userPet = GetUserPetTest();
             var actionType = ActionTypeEnum.Feed;
             var action = new Domain.Entity.Action
@@ -384,8 +374,7 @@ namespace PetGame.UnitTests.Services
             var petServiceMock = new Mock<IPetService>();
             var userServiceMock = new Mock<IUserService>();
             var actionServiceMock = new Mock<IActionService>();
-            var timeProviderServiceMock = new Mock<ITimeProviderService>();
-            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object, timeProviderServiceMock.Object);
+            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object);
 
             userPetRepoMock.Setup(repo => repo.GetUserPet(2))
                 .ReturnsAsync((UserPet)null)
@@ -407,8 +396,7 @@ namespace PetGame.UnitTests.Services
             var petServiceMock = new Mock<IPetService>();
             var userServiceMock = new Mock<IUserService>();
             var actionServiceMock = new Mock<IActionService>();
-            var timeProviderServiceMock = new Mock<ITimeProviderService>();
-            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object, timeProviderServiceMock.Object);
+            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object);
             var userPet = GetUserPetTest();
             var actionType = ActionTypeEnum.Pet;
             var action = new Domain.Entity.Action
@@ -442,8 +430,7 @@ namespace PetGame.UnitTests.Services
             var petServiceMock = new Mock<IPetService>();
             var userServiceMock = new Mock<IUserService>();
             var actionServiceMock = new Mock<IActionService>();
-            var timeProviderServiceMock = new Mock<ITimeProviderService>();
-            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object, timeProviderServiceMock.Object);
+            var userPetService = new UserPetService(userPetRepoMock.Object, petServiceMock.Object, userServiceMock.Object, actionServiceMock.Object);
 
             userPetRepoMock.Setup(repo => repo.GetUserPet(2))
                 .ReturnsAsync((UserPet)null)

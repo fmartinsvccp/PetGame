@@ -19,7 +19,10 @@ namespace PetGame.Services
             this.petRepo = petRepo;
             this.cache = cache;
         }
-
+        /// <summary>
+        /// Gets all the pets.
+        /// </summary>
+        /// <returns>List of objects of Pets.</returns>
         public async Task<List<Pet>> GetPetList()
         {
             var data = await cache.GetOrCreateAsync("PetList", async entry =>
@@ -29,7 +32,11 @@ namespace PetGame.Services
             });
             return data;
         }
-
+        /// <summary>
+        /// Gets a pet by id.
+        /// </summary>
+        /// <param name="id">Id of the pet.</param>
+        /// <returns>Object of the Pet</returns>
         public async Task<Pet> GetPet(int id)
         {
             var data = await cache.GetOrCreateAsync(id, async entry =>

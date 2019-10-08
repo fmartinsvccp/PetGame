@@ -13,7 +13,11 @@ namespace PetGame.Services
         {
             this.userRepo = userRepo;
         }
-
+        /// <summary>
+        /// Create a new user.
+        /// </summary>
+        /// <param name="name">String of the user name.</param>
+        /// <returns>Object of the user.</returns>
         public async Task<User> CreateUser(string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -23,7 +27,11 @@ namespace PetGame.Services
 
             return await userRepo.CreateUser(name);
         }
-
+        /// <summary>
+        /// Get user by Id.
+        /// </summary>
+        /// <param name="id">Id of the user.</param>
+        /// <returns>Object of the user.</returns>
         public async Task<User> GetUser(int id)
         {
             return await userRepo.GetUser(id);

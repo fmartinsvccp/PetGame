@@ -15,7 +15,11 @@ namespace PetGame.Repositories
         {
             this.petGameDb = petGameDbContext;
         }
-
+        /// <summary>
+        /// Creates a user.
+        /// </summary>
+        /// <param name="name">String of the user name</param>
+        /// <returns>Object of the user created</returns>
         public async Task<User> CreateUser(string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -30,7 +34,11 @@ namespace PetGame.Repositories
 
             return user;
         }
-
+        /// <summary>
+        /// Get user by id
+        /// </summary>
+        /// <param name="id">Int id of the user</param>
+        /// <returns>Object of a User</returns>
         public async Task<User> GetUser(int id)
         {
             return await petGameDb.Users.FirstOrDefaultAsync(u => u.Id == id);

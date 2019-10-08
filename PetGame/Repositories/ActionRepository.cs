@@ -19,7 +19,12 @@ namespace PetGame.Repositories
         {
             this.petGameDb = petGameDbContext;
         }
-
+        /// <summary>
+        /// Create a new action on the database.
+        /// </summary>
+        /// <param name="userPet">UserPet object</param>
+        /// <param name="actionType">ActionType enum</param>
+        /// <returns>Object for the created action</returns>
         public async Task<Action> CreateAction(UserPet userPet, ActionTypeEnum actionType)
         {
             if (userPet == null)
@@ -35,6 +40,11 @@ namespace PetGame.Repositories
 
             return action;
         }
+        /// <summary>
+        /// Get all the actions done on a UserPet
+        /// </summary>
+        /// <param name="userPet">UserPet object</param>
+        /// <returns>List of Action Objects</returns>
 
         public async Task<List<Action>> GetActionsListByUserPet(UserPet userPet)
         {

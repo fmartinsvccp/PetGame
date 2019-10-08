@@ -9,6 +9,7 @@ using PetGame.Repositories;
 using PetGame.Repositories.Interfaces;
 using PetGame.Services;
 using PetGame.Services.Interface;
+using Microsoft.OpenApi.Models;
 
 namespace PetGame
 {
@@ -36,11 +37,15 @@ namespace PetGame
             services.AddTransient<IPetService, PetService>();
             services.AddTransient<IUserPetService, UserPetService>();
             services.AddTransient<IActionService, ActionService>();
-            services.AddTransient<ITimeProviderService, TimeProviderService>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IPetRepository, PetRepository>();
             services.AddTransient<IUserPetRepository, UserPetRepository>();
             services.AddTransient<IActionRepository, ActionRepository>();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pet Game", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,11 +56,24 @@ namespace PetGame
                 app.UseDeveloperExceptionPage();
             }
 
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<PetGameDbContext>();
+                context.Database.Migrate();
+            }
+
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pet Game");
+            });
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

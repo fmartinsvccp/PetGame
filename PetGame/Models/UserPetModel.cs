@@ -9,6 +9,5 @@ namespace PetGame.Models
         public DateTimeOffset DateOfBirth { get; set; }
         public int Hunger { get; set; }
         public int Happiness { get; set; }
-
     }
 }

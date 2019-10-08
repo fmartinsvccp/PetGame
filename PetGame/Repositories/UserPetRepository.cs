@@ -18,7 +18,12 @@ namespace PetGame.Repositories
         {
             this.petGameDb = petGameDbContext;
         }
-
+        /// <summary>
+        /// Creates a new UserPet.
+        /// </summary>
+        /// <param name="user">Object of the User</param>
+        /// <param name="pet">Object of the Pet</param>
+        /// <returns>Object of the created UserPet</returns>
         public async Task<UserPet> CreateUserPet(User user, Pet pet)
         {
             if (user == null || pet == null)
@@ -41,7 +46,11 @@ namespace PetGame.Repositories
 
             return userPet;
         }
-
+        /// <summary>
+        /// Get a UserPet by Id.
+        /// </summary>
+        /// <param name="id">Int value of the UserPet</param>
+        /// <returns>Object of the UserPet</returns>
         public async Task<UserPet> GetUserPet(int id)
         {
             return await petGameDb.UserPets
@@ -49,7 +58,11 @@ namespace PetGame.Repositories
                 .Include(p => p.User)
                 .FirstOrDefaultAsync(u => u.Id == id);
         }
-
+        /// <summary>
+        /// Saves into the database an update of a UserPet
+        /// </summary>
+        /// <param name="userPetModified">Object of UserPet</param>
+        /// <returns>Saved object of the UserPet</returns>
         public async Task<UserPet> UpdateUserPet(UserPet userPetModified)
         {
             if (userPetModified.User == null || userPetModified.Pet == null)
@@ -73,7 +86,11 @@ namespace PetGame.Repositories
 
             return userPet;
         }
-
+        /// <summary>
+        /// Gets all the UserPet of an User.
+        /// </summary>
+        /// <param name="user">Object of an user.</param>
+        /// <returns>List of UserPet objects</returns>
         public async Task<List<UserPet>> GetUserPetsByUser(User user)
         {
             if (user == null)

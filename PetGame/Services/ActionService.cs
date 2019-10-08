@@ -15,6 +15,12 @@ namespace PetGame.Services
         {
             this.actionRepo = actionRepo;
         }
+        /// <summary>
+        /// Creates an action.
+        /// </summary>
+        /// <param name="actionType">Action Type</param>
+        /// <param name="userPet">Object of the UserPet</param>
+        /// <returns>Object of the created Action</returns>
         public async Task<Domain.Entity.Action> CreateAction(ActionTypeEnum actionType, UserPet userPet)
         {
             if (userPet == null)

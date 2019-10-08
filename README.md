@@ -10,7 +10,7 @@ Classes:
 - User: Object that represents an user.
 - UserPet: Object that represents a pet that was adquired by an user.
 
-It is possible to see all the endpoints on **\swagger** but the 6 endpoints of this API are the following:
+It is possible to see all the endpoints on **/swagger** but the 6 endpoints of this API are the following:
 - User/CreateUser: Post function, requires a string on the header. Creates a new user.
   - string **name**: Name of the user.
 - Pet/GetPetList: Get function with no parameters. Returns the list of all available pets.
